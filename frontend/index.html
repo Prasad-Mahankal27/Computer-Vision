@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gym Trainer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏋️‍♂️ AI Gym Trainer</h1>
+            <p>Your Personal AI-Powered Fitness Coach</p>
+        </header>
+
+        <div id="connectionStatus" class="connection-status disconnected">
+            🔴 Connecting to server...
+        </div>
+
+        <main class="main-content">
+            <section class="video-section">
+                <h2>Live Exercise Tracking</h2>
+                
+                <div class="exercise-controls">
+                    <select id="exerciseSelect" class="exercise-select">
+                        <option value="bicep_curl" selected>Bicep Curls</option>
+                        <option value="squat">Squats</option>
+                        <option value="push_up">Push-ups</option>
+                    </select>
+                    <button class="btn btn-primary" id="startExercise">Start Camera</button>
+                    <button class="btn btn-danger" id="stopExercise" disabled>Stop Camera</button>
+                </div>
+
+                <div class="video-container">
+                    <!-- The user's webcam feed -->
+                    <video id="videoElement" autoplay playsinline style="display: none;"></video>
+                    <!-- The processed feed from the server -->
+                    <img id="processedImage" src="https://placehold.co/640x480/1a2a6c/ffffff?text=Start+your+camera+to+begin" alt="Processed Video Feed">
+                </div>
+            </section>
+
+            <aside class="stats-section">
+                <h3>Your Stats</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Rep Count</h4>
+                        <p id="repCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Feedback</h4>
+                        <p id="feedback">Waiting...</p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="footer-info">
+            <p>Powered by MediaPipe & FastAPI</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
